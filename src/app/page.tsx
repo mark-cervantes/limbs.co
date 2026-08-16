@@ -1,69 +1,147 @@
-import Image from "next/image";
+import Link from "next/link";
+import { PRODUCTS } from "@/lib/products";
 
 export default function Home() {
+  const firstCollection = PRODUCTS.filter((p) => p.collection === "first_collection");
+  const regularCollection = PRODUCTS.filter((p) => p.collection === "regular");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="bg-black text-white">
+      {/* Hero */}
+      <section className="relative min-h-[80vh] flex items-center justify-center px-6">
+        <div className="text-center max-w-2xl">
+          <img
+            src="/brand/logo-dark-bg.png"
+            alt="LIM3S"
+            className="w-64 md:w-80 h-auto mx-auto mb-8"
+          />
+          <p
+            className="text-lg md:text-xl text-[#999] italic mb-12"
+            style={{ fontFamily: "var(--font-cormorant)" }}
+          >
+            At first, everything was just an idea
           </p>
+          <Link href="/shop" className="btn-primary">
+            Shop Now
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* First Collection */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="flex items-center justify-between mb-8">
+          <h2
+            className="text-3xl md:text-4xl text-white"
+            style={{ fontFamily: "var(--font-cormorant)" }}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+            First Collection
+          </h2>
+          <Link
+            href="/shop?collection=first_collection"
+            className="text-xs uppercase tracking-widest text-[#999] hover:text-white transition-colors"
+          >
+            View All
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {firstCollection.map((product) => (
+            <Link key={product.id} href={`/shop/${product.slug}`} className="product-card group">
+              <div className="aspect-square bg-[#111] border border-[#2a2a2a] flex items-center justify-center mb-3 overflow-hidden">
+                {product.images.length > 0 ? (
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-[#333] text-sm uppercase tracking-widest">
+                    {product.color}
+                  </div>
+                )}
+              </div>
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm text-white truncate">{product.name}</h3>
+                <span className="text-sm text-[#999] ml-2">P{product.price}</span>
+              </div>
+              <p className="text-xs text-[#555] mt-1">{product.color}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Regular Collection */}
+      <section className="max-w-6xl mx-auto px-6 py-20 border-t border-[#2a2a2a]">
+        <div className="flex items-center justify-between mb-8">
+          <h2
+            className="text-3xl md:text-4xl text-white"
+            style={{ fontFamily: "var(--font-cormorant)" }}
+          >
+            Regular
+          </h2>
+          <Link
+            href="/shop?collection=regular"
+            className="text-xs uppercase tracking-widest text-[#999] hover:text-white transition-colors"
+          >
+            View All
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {regularCollection.map((product) => (
+            <Link key={product.id} href={`/shop/${product.slug}`} className="product-card group">
+              <div className="aspect-square bg-[#111] border border-[#2a2a2a] flex items-center justify-center mb-3 overflow-hidden">
+                {product.images.length > 0 ? (
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-[#333] text-sm uppercase tracking-widest">
+                    {product.color}
+                  </div>
+                )}
+              </div>
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm text-white truncate">{product.name}</h3>
+                <span className="text-sm text-[#999] ml-2">P{product.price}</span>
+              </div>
+              <p className="text-xs text-[#555] mt-1">{product.color}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Lifestyle section */}
+      <section className="max-w-6xl mx-auto px-6 py-20 border-t border-[#2a2a2a]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="aspect-[4/5] overflow-hidden">
+            <img
+              src="/brand/street-shot-1.jpg"
+              alt="Lifestyle"
+              className="w-full h-full object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className="aspect-[4/5] overflow-hidden">
+            <img
+              src="/brand/street-shot-2.jpg"
+              alt="Lifestyle"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Tagline */}
+      <section className="px-6 py-32 text-center">
+        <p
+          className="text-2xl md:text-4xl text-[#999] italic max-w-3xl mx-auto"
+          style={{ fontFamily: "var(--font-cormorant)" }}
+        >
+          &ldquo;At first, everything was just an idea&rdquo;
+        </p>
+      </section>
     </div>
   );
 }

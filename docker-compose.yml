@@ -1,0 +1,10 @@
+services:
+  limbs-co:
+    image: limbs-co:latest
+    container_name: limbs-co
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9025:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
