@@ -8,16 +8,17 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-[#2a2a2a]">
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
+      <nav className="max-w-6xl mx-auto px-6 py-5 flex flex-col items-center">
+        {/* Centered logo */}
+        <Link href="/" className="flex items-center justify-center mb-4">
           <img
             src="/brand/logo-dark-bg.png"
             alt="LIM3S"
-            className="h-8 w-auto"
+            className="h-12 md:h-16 w-auto"
           />
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav - centered below logo */}
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/shop"
@@ -53,7 +54,7 @@ export function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white absolute right-6 top-5"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >

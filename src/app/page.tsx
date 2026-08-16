@@ -7,16 +7,21 @@ export default function Home() {
 
   return (
     <div className="bg-black text-white">
-      {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center justify-center px-6">
-        <div className="text-center max-w-2xl">
+      {/* Hero — bone "L" centerpiece */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
+
+        <div className="text-center max-w-2xl relative z-10">
+          {/* Large bone "L" illustration */}
           <img
-            src="/brand/logo-dark-bg.png"
-            alt="LIM3S"
-            className="w-64 md:w-80 h-auto mx-auto mb-8"
+            src="/brand/logo-bone-hero.png"
+            alt="Limbs.co"
+            className="w-48 md:w-72 h-auto mx-auto mb-10 opacity-90"
+            style={{ filter: "drop-shadow(0 0 30px rgba(255,255,255,0.08))" }}
           />
           <p
-            className="text-lg md:text-xl text-[#999] italic mb-12"
+            className="text-xl md:text-2xl text-[#999] italic mb-10 tracking-wide"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             At first, everything was just an idea
