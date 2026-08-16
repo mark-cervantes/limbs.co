@@ -8,9 +8,9 @@ export function Footer() {
           {/* Brand */}
           <div>
             <img
-              src="/brand/logo-wordmark-only.png"
-              alt="LIM3S"
-              className="h-20 w-auto mb-3 opacity-80"
+              src="/limbs-logo-full.png"
+              alt="LIMBS"
+              className="h-24 w-auto mb-3 opacity-80"
             />
           </div>
 

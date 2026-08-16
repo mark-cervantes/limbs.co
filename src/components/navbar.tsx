@@ -12,9 +12,9 @@ export function Navbar() {
         {/* Centered logo — wordmark only, no tagline */}
         <Link href="/" className="flex items-center justify-center mb-3">
           <img
-            src="/brand/logo-wordmark-only.png"
-            alt="LIM3S"
-            className="h-20 md:h-32 w-auto"
+            src="/limbs-logo-full.png"
+            alt="LIMBS"
+            className="h-24 md:h-40 w-auto"
           />
         </Link>
 
