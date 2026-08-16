@@ -8,13 +8,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <img
-              src="/brand/logo-bone-white.png"
+              src="/brand/logo-wordmark-only.png"
               alt="LIM3S"
-              className="h-14 w-auto mb-3 opacity-80"
+              className="h-20 w-auto mb-3 opacity-80"
             />
-            <p className="text-sm text-[#999] italic" style={{ fontFamily: "var(--font-cormorant)" }}>
-              At first, everything was just an idea
-            </p>
           </div>
 
           {/* Links */}

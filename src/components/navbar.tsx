@@ -9,12 +9,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-[#2a2a2a]">
       <nav className="max-w-6xl mx-auto px-6 py-5 flex flex-col items-center">
-        {/* Centered logo */}
-        <Link href="/" className="flex items-center justify-center mb-4">
+        {/* Centered logo — wordmark only, no tagline */}
+        <Link href="/" className="flex items-center justify-center mb-3">
           <img
-            src="/brand/logo-dark-bg.png"
+            src="/brand/logo-wordmark-only.png"
             alt="LIM3S"
-            className="h-12 md:h-16 w-auto"
+            className="h-20 md:h-32 w-auto"
           />
         </Link>
 
