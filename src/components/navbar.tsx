@@ -14,7 +14,7 @@ export function Navbar() {
           <img
             src="/limbs-logo-full.png"
             alt="LIMBS"
-            className="h-24 md:h-40 w-auto"
+            className="h-14 md:h-20 w-auto"
           />
         </Link>
 
